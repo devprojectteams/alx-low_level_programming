@@ -1,4 +1,4 @@
-nclude "main.h"
+include "main.h"
 
 /**
 *main - this program prints _putchar
