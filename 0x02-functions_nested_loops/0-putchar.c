@@ -1,19 +1,18 @@
-include "main.h"
+#include "main.h"
 
 /**
-*main - this program prints _putchar
-*Return: (0) if successful
+* main - this program prints _putchar
+* we are not allowed to use stdio.h as our header file.
+* Return: 0 always successful
 */
 
 int main(void)
 {
-char var[] = "_putchar";
-int ii;
-/*length of the array var*/
-int lenVar = sizeof(var) / sizeof(var[0]);
-for (ii = 0; ii < lenVar - 1; ii++)
+char text[9] = "_putchar";
+int i = 0;
+for (i = 0; i < 8; i++)
 {
-_putchar(var[ii]);
+_putchar(text[i]);
 }
 _putchar('\n');
 return (0);
