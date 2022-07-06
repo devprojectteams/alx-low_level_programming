@@ -1,20 +1,20 @@
-#include "main.h"
+#include"main.h"
 
 /**
-*main - this program prints _putchar
-*Return: (0) if successful
+* main -print _putchar, followed by new line
+* Return: 0
 */
 
 int main(void)
 {
-char var[] = "_putchar";
-int ii;
-/*length of the array var*/
-int lenVar = sizeof(var) / sizeof(var[0]);
-for (ii = 0; ii < lenVar - 1; ii++)
-{
-_putchar(var[ii]);
-}
-_putchar('\n');
+_putchar('_');
+_putchar('p');
+_putchar('u');
+_putchar('t');
+_putchar('c');
+_putchar('h');
+_putchar('a')
+_putchar('r');
+_putchar('\n')
 return (0);
 }
