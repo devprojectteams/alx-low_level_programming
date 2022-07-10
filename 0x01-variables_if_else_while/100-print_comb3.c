@@ -1,22 +1,38 @@
 #include <stdio.h>
 
 /**
-*main - print 0-9 separated with commas, using putchar
-*Return: Always 0 (Success)
+* main - Prints numbers between 00 to 89.
+* Return: Always 0 (Success)
 */
-
 int main(void)
 {
-int n = '0';
-while (n <= '9')
+
+int e, i;
+
+e = 48;
+i = 48;
+
+while (e < 58)
 {
-putchar(n);
-if (n != '9')
+i = 48;
+while (i < 58)
 {
+
+if (e != i && e < i)
+{
+
+putchar(e);
+putchar(i);
+if (i == 57 && e == 56)
+{
+break;
+}
 putchar(',');
 putchar(' ');
 }
-n++;
+i++;
+}
+e++;
 }
 putchar('\n');
 return (0);
