@@ -17,7 +17,6 @@ for (i = 0; i < n; i++)
 sum += va_arg(rest, unsigned int);
 
 va_end(rest);
-
 if (n != 0)
 return (sum);
 return (0);
