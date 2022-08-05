@@ -1,82 +1,86 @@
+#include <stdarg.h>
+#include <stdio.h>
 #include "variadic_functions.h"
-#include<stdio.h>
-#include<stdarg.h>
+
 /**
-* p_char - print char
-* @list:arg
+* print_c - print a char
+* @c: char to print
+*
 * Return: void
 */
-
-void p_char(va_list list)
+void print_c(va_list c)
 {
-printf("%c", va_arg(list, int));
+printf("%c", va_arg(c, int));
 }
+
 /**
-* p_string - print string
-* @list:arg
+* print_s - prints a string
+* @s: string to print
+*
 * Return: void
 */
-
-void p_string(va_list list)
+void print_s(va_list s)
 {
-char *str;
+char *str = va_arg(s, char *);
 
-str = va_arg(list, char*);
 if (str == NULL)
-str = "(nil)";
+		str = "(nil)";
 printf("%s", str);
 }
+
 /**
-* p_integer - print integer
-* @list:arg
+* print_i - prints an int
+* @i: int to print
+*
 * Return: void
 */
-
-void p_integer(va_list list)
+void print_i(va_list i)
 {
-printf("%i", va_arg(list, int));
+printf("%d", va_arg(i, int));
 }
+
 /**
-* p_float - print float
-* @list:arg
+* print_f - prints a float
+* @f: float to print
+*
 * Return: void
 */
-
-void p_float(va_list list)
+void print_f(va_list f)
 {
-printf("%f", va_arg(list, double));
+printf("%f", va_arg(f, double));
 }
+
 /**
-* print_all - print everything
-* @format:arg
+* print_all - prints anything
+* @format: list of argument types passed to the function
+*
 * Return: void
 */
 void print_all(const char * const format, ...)
-
 {
 unsigned int i, j;
-t_print t[] = {
-{"c", p_char},
-{"s", p_string},
-{"i", p_integer},
-{"f", p_float},
+print_t p[] = {
+{"c", print_c},
+{"s", print_s},
+{"i", print_i},
+{"f", print_f},
 {NULL, NULL}
 };
 va_list valist;
-char *s = "";
+char *separator = "";
 
 va_start(valist, format);
 i = 0;
 while (format && format[i])
 {
 j = 0;
-while (t[j].x != NULL)
+while (p[j].t != NULL)
 {
-if (*(t[j].x) == format[i])
+if (*(p[j].t) == format[i])
 {
-printf("%s", s);
-t[j].T_func(valist);
-s = ", ";
+printf("%s", separator);
+p[j].f(valist);
+separator = ", ";
 break;
 }
 j++;
