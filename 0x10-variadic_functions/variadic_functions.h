@@ -1,21 +1,20 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef _FUNCTION_VARIADIC_H_
+#define _FUNCTION_VARIADIC_H_
 
-#include <stdarg.h>
+int sum_them_all(const unsigned int n, ...);
+void print_numbers(const char *separator, const unsigned int n, ...);
+void print_strings(const char *separator, const unsigned int n, ...);
+void print_all(const char * const format, ...);
+#include<stdarg.h>
 /**
-* struct print - print type with corresponding print function
-* @t: print type
-* @f: print function
+* struct print - multiple choice print
+* @x: char Type of print
+* @T_func: funct
 */
 typedef struct print
 {
-char *t;
-void (*f)(va_list);
-} print_t;
-
-int sum_them_all(const unsigned int, ...);
-void print_numbers(const char *, const unsigned int, ...);
-void print_strings(const char *, const unsigned int, ...);
-void print_all(const char * const, ...);
+char *x;
+void (*T_func)(va_list);
+} t_print;
 
 #endif
