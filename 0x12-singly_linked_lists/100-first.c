@@ -1,11 +1,13 @@
-#include "lists.h"
+#include <stdio.h>
+
+void myStartupFun(void) __attribute__ ((constructor));
+
 /**
-  *print - prints before main
-  *
-  *Return: void.
-  */
-void print(void)
+ * myStartupFun - function runs before main function
+ */
+
+void myStartupFun(void)
 {
-	printf("You're beat! and yet, you must allow,");
-	printf("\nI bore my house upon my back!\n");
+	printf("You're beat! and yet, you must allow,\nI");
+	printf(" bore my house upon my back!\n");
 }
